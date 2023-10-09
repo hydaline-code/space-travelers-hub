@@ -1,10 +1,7 @@
-import React from "react";
-
-// Rockets.js
 import React from 'react';
 
-const myProfile = () => {
-  return <div>My profile</div>;
-}
+const MyProfile = () => (
+  <div>My profile</div>
+);
 
-export default myProfile;
+export default MyProfile;

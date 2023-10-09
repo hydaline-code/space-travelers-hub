@@ -1,10 +1,7 @@
-import React from "react";
-
-// Rockets.js
 import React from 'react';
 
-const Dragons = () => {
-  return <div>Dragon Page</div>;
-}
+const Dragon = () => (
+  <div />
+);
 
-export default Dragons;
+export default Dragon;

@@ -1,16 +1,12 @@
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Rockets from './components/rockets';
 import Dragons from './components/dragons';
 import Missions from './components/missions';
-import myProfile from './components/myprofile';
+
 import './App.css';
 
-
-
-const App=()=> {
-  return (
-    <Router>
+const App = () => (
+  <Router>
     <div className="App">
       <Routes>
         <Route path="/rockets" element={<Rockets />} />
@@ -20,7 +16,6 @@ const App=()=> {
       </Routes>
     </div>
   </Router>
-  );
-}
+);
 
 export default App;
