@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-// import { createLogger } from 'redux-logger';
+// import { configureStore } from '@reduxjs/toolkit';
+// // import { createLogger } from 'redux-logger';
 
-// const loggerMiddleware = createLogger();
-const store = configureStore({
+// // const loggerMiddleware = createLogger();
+// const store = configureStore({
 
-});
+// });
 
-export default store;
+// export default store;
