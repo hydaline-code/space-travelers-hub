@@ -32,6 +32,16 @@ function Navigation() {
           Missions
         </NavLink>
         <NavLink
+          to="/dragon"
+          className="view"
+          style={({ isActive }) => ({
+            textDecoration: isActive ? 'underline' : '',
+            color: isActive ? 'blue' : '',
+          })}
+        >
+          My Profile
+        </NavLink>
+        <NavLink
           to="/profile"
           className="view-profile"
           style={({ isActive }) => ({
