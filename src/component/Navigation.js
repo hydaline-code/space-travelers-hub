@@ -1,9 +1,11 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './styles/Navigation.css';
+
 function Navigation() {
   return (
     <div>
-      <div className="Navbar">
+      <div className="navbar">
         <div className="logo">
           <img src="planet.png" style={{width: '50px', height: '50px'}} alt="" />
           <h1>Space Travelers&apos; Hub</h1>
@@ -41,7 +43,7 @@ function Navigation() {
         </NavLink>
         <NavLink
           to="/Profile"
-          className="view-profile"
+          className="My-profile"
           style={({isActive}) => ({
             textDecoration: isActive ? 'underline' : '',
             color: isActive ? 'blue' : '',
