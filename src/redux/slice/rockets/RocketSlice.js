@@ -7,13 +7,18 @@ const rocketSlice = createSlice({
     setRockets: (state, action) => action.payload,
     reserveRocket: (state, action) => {
       const rocketId = action.payload;
-      const newState = state.map((rocket) => (rocket.id !== rocketId ? rocket
-        : { ...rocket, reserved: true }));
-      console.log('New state after reserving rocket:', newState);
-      return newState;
+      return state.map((rocket) =>
+        rocket.id !== rocketId ? rocket : { ...rocket, reserved: !rocket.reserved }
+      );
+    },
+    cancelReservation: (state, action) => {
+        const rocketId = action.payload;
+      return state.map((rocket) =>
+        rocket.id !== rocketId ? rocket : { ...rocket, reserved: false }
+      );
     },
   },
 });
 
-export const { setRockets, reserveRocket } = rocketSlice.actions;
+export const { setRockets, reserveRocket, cancelReservation } = rocketSlice.actions;
 export default rocketSlice.reducer;

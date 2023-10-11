@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { reserveRocket } from '../redux/slice/rockets/RocketSlice';
+import { reserveRocket, cancelReservation } from '../redux/slice/rockets/RocketSlice';
 import './styles/Rockets.css';
 
 function Rockets() {
@@ -9,6 +9,11 @@ function Rockets() {
 
   const handleReserveRocket = (rocketId) => {
     dispatch(reserveRocket(rocketId));
+  };
+
+  const handleCancelReservation = (rocketId) => {
+    console.log('Cancelling reservation for rocket ID:', rocketId);
+    dispatch(cancelReservation(rocketId));
   };
 
   return (
@@ -22,19 +27,25 @@ function Rockets() {
               {rocket.reserved ? (
                 <div>
                   <p className="reserved-description">Reserved</p>
-                  <p>{ rocket.description }</p>
+                  <p>{rocket.description}</p>
+                  < button 
+                    className="button"
+                    onClick={() => handleCancelReservation(rocket.id)}
+                  >
+                    Cancel Reservation
+                  </button>
                 </div>
               ) : (
-                <p>{ rocket.description }</p>
+                  <div>
+                    <p>{rocket.description}</p>
+                    <button
+                      className="button"
+                      onClick={() => handleReserveRocket(rocket.id)}
+                    >
+                      Reserve Rocket
+                    </button>
+                  </div>
               )}
-              <button
-                type="button"
-                className="reserve-btn"
-                onClick={() => handleReserveRocket(rocket.id)}
-                disabled={rocket.reserved}
-              >
-                {rocket.reserved ? 'Cacel Reservation' : 'Reserve Rocket'}
-              </button>
             </div>
           </div>
         ))}
