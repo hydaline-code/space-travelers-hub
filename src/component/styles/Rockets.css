@@ -1,0 +1,15 @@
+.rocket-container {
+  margin-left: 150px;
+}
+
+.rocket-elements {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.rocket-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
