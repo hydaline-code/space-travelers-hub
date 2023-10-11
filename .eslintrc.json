@@ -31,6 +31,8 @@
   "ignorePatterns": [
     "dist/",
     "build/",
-    "App.js"
+    "App.js",
+    "Rockets.js",
+    "RocketSlice.js"
   ]
 }
