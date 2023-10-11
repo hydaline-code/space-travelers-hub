@@ -1,0 +1,38 @@
+ .missions-container {
+  border: 2px solid rgb(192, 44, 44);
+  padding: 0.5rem;
+  display: grid;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-gap: 0; 
+  border: 1px solid #000; 
+}
+
+.column-title {
+  font-weight: bold;
+}
+
+.row-description > div {
+  border: 1px solid #c33535; 
+} 
+
+.description {
+  border-left: solid 1px red;
+}
+
+.status {
+  border-left: solid 1px red;
+}
+
+.second-btn {
+  border-left: solid 1px red;
+}
+
+.desc {
+  width: 100%;
+  font-size: 12px;
+}
