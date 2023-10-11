@@ -7,7 +7,7 @@ function Navigation() {
     <div>
       <div className="navbar">
         <div className="logo">
-          <img src="planet.png" style={{ width: '50px', height: '50px' }} alt="" />
+          <img src="planet.png" style={{ width: '50px', height: '50px' }} alt="logo" />
           <h1>Space Travelers&apos; Hub</h1>
         </div>
         <div className="nav-links" />
