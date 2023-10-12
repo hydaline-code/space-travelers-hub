@@ -22,10 +22,6 @@ body {
   width: 400px;
 }
 
-.nav-links {
-  width: 350px;
-}
-
 a {
   text-decoration: none;
   font-size: 20px;
@@ -38,5 +34,5 @@ a:hover {
 
 .My-profile {
   border-left: 3px solid rgba(111, 111, 111, 0.6);
-  padding-left: 30px;
+  padding-left: 1rem;
 }

@@ -8,13 +8,26 @@ td, th {
   .status > button {
   font-size: 12px;
   margin-left: 1rem;
-  border-radius: 3px;
+  border: none;
+  border-radius: 5px;
 }
 
-td > button {
+.status > button.not-member {
+  background: #757575;
+  color: #fff;
+}
+
+.status > button.badge {
+  background: rgb(46, 179, 212);
+  color: #fff;
+}
+
+ .second-btn> button {
   margin-left: 1rem;
-  font-size: 15px;
-  border-radius: 3px;
+  font-size: 16px;
+  padding: 0.4rem;
+  border-radius: 5px;
+  background-color: #f2f2f2;
 }
 
 td > p {
@@ -30,16 +43,27 @@ td > p {
 }
 
 .row-description:nth-child(odd) {
-  background-color: #afafafcb; /* Choose your preferred background color */
+  background-color: #afafafcb;
 }
 
 .mission-list {
   border-left: 1px solid #000;
 }
 
-/* Add a left border to the table header */
 .column-title {
   border-left: 1px solid #000;
 }
+
+.join-button {
+  border: 1px solid #1c1c1c;
+  
+}
+
+.leave-button {
+  color: #FF5733;
+  border: 1px solid #FF5733;
+
+}
+
 
 

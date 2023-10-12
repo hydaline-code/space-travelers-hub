@@ -37,7 +37,7 @@ const Profile = () => {
 
   return (
     <div className='profile-container'>
-      <h2>Missions</h2>
+      <h2>My Missions</h2>
       <div className='columns'>
         <div className='column'>
           <ul className='list-group'>

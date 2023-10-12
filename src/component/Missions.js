@@ -165,12 +165,14 @@ const Missions = ({ mission }) => {
                 <td><h5>{mission.mission_name}</h5></td>
                 <td className='description'><p>{mission.description}</p></td>
                 <td className='status'>
-                  {mission.reserved ? <button className='badge'>Active member</button> : <button>Not a Member</button>}
+                  {mission.reserved ? <button className='badge'>ACTIVE MEMBER</button> : <button className='not-member'>NOT A MEMBER</button>}
                 </td>
                 <td className='second-btn'>
-                  <button onClick={() => handleMissionStatus(mission.mission_id, mission.reserved)}>
-                    {mission.reserved ? 'Leave Mission' : 'Join Mission'}
-                  </button>
+                <button onClick={() => handleMissionStatus(mission.mission_id, mission.reserved)}
+                            className={mission.reserved ? 'leave-button' : 'join-button'}
+                          >
+                            {mission.reserved ? 'Leave Mission' : 'Join Mission'}
+                          </button>
                 </td>
               </tr>
             ))
