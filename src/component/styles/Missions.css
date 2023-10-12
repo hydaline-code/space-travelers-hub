@@ -36,3 +36,7 @@
   width: 100%;
   font-size: 12px;
 }
+
+.mission-list {
+  list-style: none;
+}
