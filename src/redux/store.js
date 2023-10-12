@@ -4,7 +4,7 @@ import dragonReducer from './slice/dragons/DragonSlice';
 
 const store = configureStore({
   reducer: {
-    dragon: dragonReducer,
+    dragons: dragonReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

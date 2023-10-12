@@ -1,40 +1,51 @@
-import React from 'react';
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import dragonReducer from '../redux/slice/dragons/DragonSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getDragon, reserveDragon, cancelDragon } from '../redux/slice/dragons/DragonSlice';
+import './styles/Dragons.css';
 
-const Dragons = () => (
-  <h1>Hello from dragons</h1>
-);
-// const dragons = useSelector((state) => state.dragons.data);
-// const loading = useSelector((state) => state.Dragons.loading);
-// const error = useSelector((state) => state.Dragons.error);
-// const dispatch = useDispatch();
+const Dragons = () => {
+  const dispatch = useDispatch();
+  const dragons = useSelector((state) => state.dragons.dragons);
 
-// useEffect(() => {
-//   dispatch(dragonReducer());
-// }, [dispatch]);
-// return (
-//   <div>
-//     <h1>Hello from Dragons</h1>
-//     {loading ? (
-//       <p>Loading...</p>
-//     ) : error ? (
-//       <p>
-//         Error:
-//         {error}
-//       </p>
-//     ) : (
-//       <div>
-//         <h2>Dragon Data:</h2>
-//         <ul>
-//           {dragons.map((dragon) => (
-//             <li key={dragon.id}>{dragon.name}</li>
-//           ))}
-//         </ul>
-//       </div>
-//     )}
-//   </div>
-// );
+  useEffect(() => {
+    if (!dragons || !dragons.length) {
+      dispatch(getDragon());
+    }
+  }, [dispatch, dragons]);
+
+  return (
+    <div className="dragons_container">
+      <h1>Dragons</h1>
+      <ul className="dragons-list">
+        {
+        dragons && dragons.map((dragon) => (
+          <li className="dragon-item" key={dragon.id}>
+            <div className="img-container">
+              <img src={dragon.flickr_images} alt="" className="dragon-img" />
+            </div>
+            <div className="content-container">
+              <h2 className="rocket-title">{dragon.name}</h2>
+              <p className="rocket-des">
+                {dragon.reserved && <span className="reserved-tag">Reserved</span>}
+                {dragon.description}
+              </p>
+              {!dragon.reserved && (
+                <button type="button" className="reserve-rocket" onClick={() => dispatch(reserveDragon(dragon.id))}>
+                  Reserve Dragon
+                </button>
+              )}
+              {dragon.reserved && (
+                <button type="button" className="cancel-reserve" onClick={() => dispatch(cancelDragon(dragon.id))}>
+                  Cancel Reservation
+                </button>
+              )}
+            </div>
+          </li>
+        ))
+      }
+      </ul>
+    </div>
+  );
+};
 
 export default Dragons;
