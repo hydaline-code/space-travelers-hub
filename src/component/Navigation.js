@@ -10,7 +10,7 @@ function Navigation() {
           <img src="planet.png" style={{ width: '50px', height: '50px' }} alt="logo" />
           <h1>Space Travelers&apos; Hub</h1>
         </div>
-        <div className="nav-links" />
+        <div className="nav-links">
         <NavLink
           to="/Rockets"
           className="view"
@@ -51,6 +51,7 @@ function Navigation() {
         >
           My Profile
         </NavLink>
+      </div>
       </div>
     </div>
   );
