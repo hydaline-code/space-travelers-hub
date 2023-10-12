@@ -1,3 +1,4 @@
+
 import logger from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
 import dragonReducer from './slice/dragons/DragonSlice';
@@ -7,7 +8,7 @@ const store = configureStore({
   reducer: {
     dragon: dragonReducer,
     rocket: rocketReducer,
-   missions: missionReducer,
+    missions: missionReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 
