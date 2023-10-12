@@ -1,24 +1,6 @@
 
+
 import { createSlice } from '@reduxjs/toolkit';
-
-export const fetchMissions = () => async (dispatch) => {
-  try {
-    dispatch(setLoading(true));
-    const response = await fetch('https://api.spacexdata.com/v3/missions');
-
-    if (!response.ok) {
-      throw new Error('Network response failed');
-    }
-
-    const data = await response.json();
-    const missionData = Object.values(data);
-   
-    dispatch(setMissions(missionData));
-  } catch (error) {
-    
-    dispatch(setError(error.message));
-  }
-};
 
 const initialState = {
   missions: [],
@@ -55,11 +37,30 @@ export const missionsSlice = createSlice({
       if (missionToUpdate) {
         missionToUpdate.reserved = false;
       }
-    }    
-    
+    },
   },
 });
 
-export const { setMissions, setLoading, setError, joinMission, leaveMission } = missionsSlice.actions;
+export const fetchMissions = () => async (dispatch) => {
+  try {
+    dispatch(missionsSlice.actions.setLoading(true));
+    const response = await fetch('https://api.spacexdata.com/v3/missions');
+
+    if (!response.ok) {
+      throw new Error('Network response failed');
+    }
+
+    const data = await response.json();
+    const missionData = Object.values(data);
+
+    dispatch(missionsSlice.actions.setMissions(missionData));
+  } catch (error) {
+    dispatch(missionsSlice.actions.setError(error.message));
+  }
+};
+
+export const {
+  setMissions, setLoading, setError, joinMission, leaveMission,
+} = missionsSlice.actions;
 
 export default missionsSlice.reducer;

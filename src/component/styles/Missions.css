@@ -1,11 +1,13 @@
- .missions-container {
+.missions-container {
   padding: 0.5rem;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #757575;
 }
-  .status > button {
+
+.status > button {
   font-size: 12px;
   margin-left: 1rem;
   border: none;
@@ -22,7 +24,7 @@ td, th {
   color: #fff;
 }
 
- .second-btn> button {
+.second-btn > button {
   margin-left: 1rem;
   font-size: 16px;
   padding: 0.4rem;
@@ -33,12 +35,9 @@ td, th {
 td > p {
   padding: 0.3rem;
 }
-.column-title {
-  font-weight: bold;
-}
 
 .description {
- width: 50%;
+  width: 50%;
   font-size: 12px;
 }
 
@@ -51,19 +50,15 @@ td > p {
 }
 
 .column-title {
+  font-weight: bold;
   border-left: 1px solid #000;
 }
 
 .join-button {
   border: 1px solid #1c1c1c;
-  
 }
 
 .leave-button {
-  color: #FF5733;
-  border: 1px solid #FF5733;
-
+  color: #ff5733;
+  border: 1px solid #ff5733;
 }
-
-
-
