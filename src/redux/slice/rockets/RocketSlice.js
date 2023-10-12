@@ -7,15 +7,11 @@ const rocketSlice = createSlice({
     setRockets: (state, action) => action.payload,
     reserveRocket: (state, action) => {
       const rocketId = action.payload;
-      return state.map((rocket) =>
-        rocket.id !== rocketId ? rocket : { ...rocket, reserved: !rocket.reserved }
-      );
+      return state.map((rocket) => (rocket.id !== rocketId ? rocket : { ...rocket, reserved: !rocket.reserved }));
     },
     cancelReservation: (state, action) => {
         const rocketId = action.payload;
-      return state.map((rocket) =>
-        rocket.id !== rocketId ? rocket : { ...rocket, reserved: false }
-      );
+        return state.map((rocket) => (rocket.id !== rocketId ? rocket : { ...rocket, reserved: false }))
     },
   },
 });
