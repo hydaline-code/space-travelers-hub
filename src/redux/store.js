@@ -6,9 +6,9 @@ import missionReducer from './slice/missions/MissionsSlice';
 
 const store = configureStore({
   reducer: {
-    dragon: dragonReducer,
-    rocket: rocketReducer,
-    missions: missionReducer,
+    dragons: dragonReducer,
+    rockets: rocketReducer,
+    mission: missionReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

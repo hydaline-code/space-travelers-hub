@@ -1,71 +1,67 @@
-// import axios from "axios";
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-// const initialState = {
-//   loading: false,
-//   data: [],
-//   error: '',
-// }
-
-// export const fetchDragons = createAsyncThunk('dragons/fetchDragons', () => {
-//   return axios.get('https://api.spacexdata.com/v4/dragons')
-//   .then(response = response.data.map(dragon => dragon))
-// })
-
-// const dragonSlice = createSlice({
-//   name: 'dragons',
-//   initialState,
-//   extraReducers: builder => {
-//     builder.addCase(fetchDragons.pending, state => {
-//       state.loading = true
-//     })
-//     builder.addCase(fetchDragons.fulfilled, (state, action) => {
-//       state.loading = false
-//       state.data = action.payload
-//       state.error = ""
-//     })
-//     builder.addCase(fetchDragons.rejected, (state, action) => {
-//       state.loading = 'false'
-//       state.data = []
-//       state.error = action.error.message
-//     })
-//   }
-// })
-
-// export default dragonSlice.reducer
-
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+const apiURL = 'https://api.spacexdata.com/v4/dragons';
 
 const initialState = {
+  dragons: [],
   loading: false,
-  data: [],
   error: '',
 };
 
-export const fetchDragons = createAsyncThunk('dragons/fetchDragons', async () => {
-  const response = await axios.get('https://api.spacexdata.com/v4/dragons');
-  return response.data.map((dragon) => dragon);
+export const getDragon = createAsyncThunk('dragons/getdragons', async () => {
+  try {
+    const response = await axios.get(apiURL);
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
 });
 
-const dragonSlice = createSlice({
-  name: 'dragons',
+const DragonSlice = createSlice({
+  name: 'dragon',
   initialState,
+  reducers: {
+    reserveDragon: (state, action) => ({
+      ...state,
+      dragons: state.dragons.map((dragon) => {
+        if (dragon.id === action.payload) {
+          return { ...dragon, reserved: true };
+        }
+        return dragon;
+      }),
+    }),
+    cancelDragon: (state, action) => ({
+      ...state,
+      dragons: state.dragons.map((dragon) => {
+        if (dragon.id === action.payload) {
+          return { ...dragon, reserved: false };
+        }
+        return dragon;
+      }),
+    }),
+  },
   extraReducers: (builder) => {
-    builder.addCase(fetchDragons.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(fetchDragons.fulfilled, (state, action) => {
-      state.loading = false;
-      state.data = action.payload;
-      state.error = '';
-    });
-    builder.addCase(fetchDragons.rejected, (state, action) => {
-      state.loading = false;
-      state.data = [];
-      state.error = action.error.message;
-    });
+    builder
+      .addCase(getDragon.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getDragon.fulfilled, (state, action) => {
+        state.dragons = action.payload.map((dragon) => ({
+          id: dragon.id,
+          name: dragon.name,
+          description: dragon.description,
+          flickr_images: dragon.flickr_images[0],
+          reserved: false,
+        }));
+        state.loading = false;
+      })
+      .addCase(getDragon.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export default dragonSlice.reducer;
+export default DragonSlice.reducer;
+export const { reserveDragon, cancelDragon } = DragonSlice.actions;
