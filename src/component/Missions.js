@@ -8,7 +8,7 @@ const Missions = ({ mission }) => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missions.missions);
 
-  const handleJoinOrLeaveMission = (missionId, reserved) => {
+  const handleMissionStatus = (missionId, reserved) => {
     if (reserved) {
       dispatch(leaveMission(missionId));
     } else {
@@ -42,7 +42,7 @@ const Missions = ({ mission }) => {
                 <div className='description'><p className='desc'>{mission.description}</p></div>
                 <div className='status'>{mission.status}
                 <button>Not a member</button></div>
-                <div className='second-btn'><button onClick={() => handleJoinOrLeaveMission(mission.mission_id, mission.reserved)}>
+                <div className='second-btn'><button onClick={() => handleMissionStatus(mission.mission_id, mission.reserved)}>
                   {mission.reserved ? 'Leave Mission' : 'Join Mission'}
                 </button></div>
               </div>
