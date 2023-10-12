@@ -1,0 +1,64 @@
+.missions-container {
+  padding: 0.5rem;
+}
+
+td,
+th {
+  border: 1px solid #757575;
+}
+
+.status > button {
+  font-size: 12px;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.status > button.not-member {
+  background: #757575;
+  color: #fff;
+}
+
+.status > button.badge {
+  background: rgb(46, 179, 212);
+  color: #fff;
+}
+
+.second-btn > button {
+  margin-left: 1rem;
+  font-size: 16px;
+  padding: 0.4rem;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+td > p {
+  padding: 0.3rem;
+}
+
+.description {
+  width: 50%;
+  font-size: 12px;
+}
+
+.row-description:nth-child(odd) {
+  background-color: #afafafcb;
+}
+
+.mission-list {
+  border-left: 1px solid #000;
+}
+
+.column-title {
+  font-weight: bold;
+  border-left: 1px solid #000;
+}
+
+.join-button {
+  border: 1px solid #1c1c1c;
+}
+
+.leave-button {
+  color: #ff5733;
+  border: 1px solid #ff5733;
+}

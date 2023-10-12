@@ -1,0 +1,13 @@
+.profile-container {
+  padding: 1rem;
+}
+
+.list-group {
+  padding: 0.5rem 0.5rem;
+  border-radius: 0;
+}
+
+ul > .list-group-item {
+  font-weight: bold;
+  font-size: 20px;
+}
