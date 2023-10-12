@@ -13,16 +13,15 @@ export const fetchMissions = () => async (dispatch) => {
     }
 
     const data = await response.json();
-    // Convert the response object into an array
+   
     const missionData = Object.values(data);
-    // Dispatch the action to set missions data
+   
     dispatch(setMissions(missionData));
   } catch (error) {
     
     dispatch(setError(error.message));
   }
 };
-
 
 const initialState = {
   missions: [],

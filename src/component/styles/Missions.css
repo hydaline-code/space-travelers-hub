@@ -1,42 +1,45 @@
  .missions-container {
-  border: 2px solid rgb(192, 44, 44);
   padding: 0.5rem;
-  display: grid;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-  grid-gap: 0; 
-  border: 1px solid #000; 
+td, th {
+  border: 1px solid #757575;
+}
+  .status > button {
+  font-size: 12px;
+  margin-left: 1rem;
+  border-radius: 3px;
 }
 
+td > button {
+  margin-left: 1rem;
+  font-size: 15px;
+  border-radius: 3px;
+}
+
+td > p {
+  padding: 0.3rem;
+}
 .column-title {
   font-weight: bold;
 }
 
-.row-description > div {
-  border: 1px solid #c33535; 
-} 
-
 .description {
-  border-left: solid 1px red;
-}
-
-.status {
-  border-left: solid 1px red;
-}
-
-.second-btn {
-  border-left: solid 1px red;
-}
-
-.desc {
-  width: 100%;
+ width: 50%;
   font-size: 12px;
 }
 
-.mission-list {
-  list-style: none;
+.row-description:nth-child(odd) {
+  background-color: #afafafcb; /* Choose your preferred background color */
 }
+
+.mission-list {
+  border-left: 1px solid #000;
+}
+
+/* Add a left border to the table header */
+.column-title {
+  border-left: 1px solid #000;
+}
+
+
