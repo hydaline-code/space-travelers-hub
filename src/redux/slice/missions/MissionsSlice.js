@@ -4,8 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 export const fetchMissions = () => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-
-    // Fetch missions data
     const response = await fetch('https://api.spacexdata.com/v3/missions');
 
     if (!response.ok) {
@@ -13,7 +11,6 @@ export const fetchMissions = () => async (dispatch) => {
     }
 
     const data = await response.json();
-   
     const missionData = Object.values(data);
    
     dispatch(setMissions(missionData));
@@ -61,17 +58,6 @@ export const missionsSlice = createSlice({
     }    
     
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(joinMission, (state, action) => {
-  //       const missionId = action.payload;
-  //       // Update the state based on the missionId for joining a mission
-  //     })
-  //     .addCase(leaveMission, (state, action) => {
-  //       const missionId = action.payload;
-  //       // Update the state based on the missionId for leaving a mission
-  //     });
-  // },
 });
 
 export const { setMissions, setLoading, setError, joinMission, leaveMission } = missionsSlice.actions;
