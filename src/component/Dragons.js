@@ -15,7 +15,7 @@ const Dragons = () => {
 
   return (
     <div className="dragons_container">
-      <h1>Dragons</h1>
+      <h1>My Dragons</h1>
       <ul className="dragons-list">
         {
         dragons && dragons.map((dragon) => (

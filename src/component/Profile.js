@@ -14,49 +14,41 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <section>
-      <div className="Rockets">
-        <h2>My Rockets</h2>
-        <ul className="reserved-list">
-          {reservedRockets.map((rocket) => (
-            <li key={rocket.id} className="reserved-item">
-              <div className="reserved-details">
-                <p>{rocket.name}</p>
-                {/* <p className="description">{rocket.description}</p> */}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-     <section>
-      <div className="mission-container">
-        <h2>My Missions</h2>
-        <div className="columns">
-          <div className="column">
-            <ul className="list-group">
-              {joinedMissions.map((mission) => (
-                <li key={mission.mission_id} className="list-group-item">
-                  {mission.mission_name}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="Rockets">
+          <h2>My Rockets</h2>
+          <ul className="reserved-list">
+            {reservedRockets.map((rocket) => (
+              <li key={rocket.id} className="reserved-item">
+                <div className="reserved-details">
+                  <p>{rocket.name}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <section>
-        <h2>Dragons</h2>
-        <div className="columns">
-          <div className="column">
-            <ul className="list-group">
-              {
-                reservedDragons.map((dragon) => (
-                  <li key={dragon.id} className="list-group-item">
-                    {dragon.name}
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+        <div className="Rockets">
+          <h2>My Missions</h2>
+          <ul className="reserved-list">
+            {joinedMissions.map((mission) => (
+              <li key={mission.mission_id} className="reserved-item">
+                <p>{mission.mission_name}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section>
+        <div className="Rockets">
+          <h2>My Dragons</h2>
+          <ul className="reserved-list">
+            {reservedDragons.map((dragon) => (
+              <li key={dragon.id} className="reserved-item">
+                <p>{dragon.name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
