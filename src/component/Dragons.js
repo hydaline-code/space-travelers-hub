@@ -15,7 +15,7 @@ const Dragons = () => {
 
   return (
     <div className="dragons_container">
-      <h1>Dragons</h1>
+      <h1>My Dragons</h1>
       <ul className="dragons-list">
         {
         dragons && dragons.map((dragon) => (
@@ -24,13 +24,13 @@ const Dragons = () => {
               <img src={dragon.flickr_images} alt="" className="dragon-img" />
             </div>
             <div className="content-container">
-              <h2 className="rocket-title">{dragon.name}</h2>
-              <p className="rocket-des">
+              <h2 className="dragon-title">{dragon.name}</h2>
+              <p className="dragon-des">
                 {dragon.reserved && <span className="reserved-tag">Reserved</span>}
                 {dragon.description}
               </p>
               {!dragon.reserved && (
-                <button type="button" className="reserve-rocket" onClick={() => dispatch(reserveDragon(dragon.id))}>
+                <button type="button" className="reserve-dragon" onClick={() => dispatch(reserveDragon(dragon.id))}>
                   Reserve Dragon
                 </button>
               )}
