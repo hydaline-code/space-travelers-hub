@@ -4,7 +4,7 @@ import { reserveRocket, cancelReservation } from '../redux/slice/rockets/RocketS
 import './styles/Rockets.css';
 
 function Rockets() {
-  const rockets = useSelector((state) => state.rocket);
+  const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
 
   const handleReserveRocket = (rocketId) => {
@@ -18,18 +18,17 @@ function Rockets() {
 
   return (
     <div>
-      <div className="rocket-container">
+      <ul className="rocket-list">
         {rockets.map((rocket) => (
-          <div key={rocket.id} className="rocket-elements">
+          <li key={rocket.id} className="rocket-item">
             <img src={rocket.flickr_images[0]} alt={rocket.name} className="rocket-image" />
             <div className="rocket-details">
               <h3>{rocket.name}</h3>
               {rocket.reserved ? (
                 <div>
-                  <p className="reserved-description">Reserved</p>
-                  <p>{rocket.description}</p>
+                  <p className="description"><span className="reserved-description">Reserved</span>{ rocket.description }</p>
                   < button 
-                    className="button"
+                    className="cancel-button"
                     onClick={() => handleCancelReservation(rocket.id)}
                   >
                     Cancel Reservation
@@ -37,9 +36,9 @@ function Rockets() {
                 </div>
               ) : (
                   <div>
-                    <p>{rocket.description}</p>
+                    <p className='description'>{rocket.description}</p>
                     <button
-                      className="button"
+                      className="reserve-button"
                       onClick={() => handleReserveRocket(rocket.id)}
                     >
                       Reserve Rocket
@@ -47,9 +46,9 @@ function Rockets() {
                   </div>
               )}
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

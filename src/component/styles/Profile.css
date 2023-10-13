@@ -1,13 +1,42 @@
 .profile-container {
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.mission-container {
+  margin-left: 100px;
+  margin-top: 20px;
+  width: 40%;
+  min-height: 100px;
 }
 
 .list-group {
   padding: 0.5rem 0.5rem;
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 ul > .list-group-item {
   font-weight: bold;
   font-size: 20px;
+}
+
+.Rockets {
+  margin-left: 34px;
+  margin-top: 38.5px;
+  width: 30%;
+  min-height: 100px;
+}
+
+.reserved-list {
+  list-style-type: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reserved-item {
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 15px;
+  padding-top: 15px;
 }
