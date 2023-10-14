@@ -49,7 +49,11 @@ export const fetchMissions = () => async (dispatch) => {
     }
 
     const data = await response.json();
-    const missionData = Object.values(data);
+    const missionData = data.map((mission) => ({
+      mission_id: mission.mission_id,
+      mission_name: mission.mission_name,
+      description: mission.description,
+    }));
 
     dispatch(missionsSlice.actions.setMissions(missionData));
   } catch (error) {
