@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -39,12 +41,12 @@ describe('Dragons Component', () => {
       },
     ];
 
-    store.dispatch(getDragon(fakeDragons)); 
+    store.dispatch(getDragon(fakeDragons));
 
     render(
       <Provider store={store}>
         <Dragons />
-      </Provider>
+      </Provider>,
     );
 
     await waitFor(() => {
@@ -60,8 +62,7 @@ describe('Dragons Component', () => {
     fireEvent.click(screen.getByText('Reserve Dragon'));
 
     const actions = store.getActions();
-const expectedAction = { type: 'dragon/reserveDragon', payload: '1' };
-expect(actions).toContainEqual(expectedAction);
-
+    const expectedAction = { type: 'dragon/reserveDragon', payload: '1' };
+    expect(actions).toContainEqual(expectedAction);
   });
 });

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import Profile from '../Profile';
 
-
 const mockStore = configureStore([]);
 
 describe('Profile Component', () => {
@@ -60,7 +59,7 @@ describe('Profile Component', () => {
       .create(
         <Provider store={store}>
           <Profile />
-        </Provider>
+        </Provider>,
       )
       .toJSON();
 

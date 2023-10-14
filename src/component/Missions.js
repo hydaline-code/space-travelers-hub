@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMissions, joinMission, leaveMission } from '../redux/slice/missions/MissionsSlice';
@@ -64,6 +63,5 @@ const Missions = () => {
     </div>
   );
 };
-
 
 export default Missions;

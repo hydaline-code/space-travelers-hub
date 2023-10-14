@@ -1,10 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Rockets from '../Rockets';
-import { fetchRockets, reserveRocket } from '../../redux/slice/rockets/RocketSlice';
 
 const mockStore = configureStore([thunk]);
 
@@ -32,11 +33,11 @@ describe('Rockets Component', () => {
     render(
       <Provider store={store}>
         <Rockets />
-      </Provider>
+      </Provider>,
     );
 
     await waitFor(() => {
-      const rocketName = screen.getByText(/Falcon 1/i); 
+      const rocketName = screen.getByText(/Falcon 1/i);
       const description = screen.getByText(/The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009/i); // Use a regular expression
       const reserveButton = screen.getByText(/Reserve Rocket/i);
 
@@ -45,7 +46,7 @@ describe('Rockets Component', () => {
       expect(reserveButton).toBeInTheDocument();
     });
 
-    fireEvent.click(screen.getByText(/Reserve Rocket/i)); 
+    fireEvent.click(screen.getByText(/Reserve Rocket/i));
 
     const actions = store.getActions();
     const expectedAction = { type: 'rockets/reserveRocket', payload: '1' };

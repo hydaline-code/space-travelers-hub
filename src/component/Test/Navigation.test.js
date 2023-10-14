@@ -9,7 +9,7 @@ describe('Navigation Component', () => {
       .create(
         <MemoryRouter>
           <Navigation />
-        </MemoryRouter>
+        </MemoryRouter>,
       )
       .toJSON();
 
