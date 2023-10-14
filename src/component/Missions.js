@@ -75,14 +75,13 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import PropTypes from 'prop-types';
 import { fetchMissions, joinMission, leaveMission } from '../redux/slice/missions/MissionsSlice';
 import './styles/Missions.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missions.missions);
-  
+
   const handleMissionStatus = (missionId, reserved) => {
     if (reserved) {
       dispatch(leaveMission(missionId));
@@ -140,14 +139,5 @@ const Missions = () => {
   );
 };
 
-// Missions.propTypes = {
-//   // If you pass mission as a prop, you need to validate it. Otherwise, you can remove this.
-//   mission: PropTypes.shape({
-//     mission_name: PropTypes.string.isRequired,
-//     description: PropTypes.string,
-//     reserved: PropTypes.bool,
-//     mission_id: PropTypes.number,
-//   }),
-// };
 
 export default Missions;
