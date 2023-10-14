@@ -1,40 +1,36 @@
-// import React from 'react';
-// import { render } from '@testing-library/react';
-// import { Provider } from 'react-redux';
-// import configureStore from 'redux-mock-store';
-// import App from './App'; // Import your App component
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import Missions from '../Missions'; // Adjust the import path as needed
 
-// const mockStore = configureStore([]);
+const mockStore = configureStore([]);
 
-// describe('App Component', () => {
-//   it('renders the App component', () => {
-//     const store = mockStore({}); // You can provide your initial state here
+describe('Missions Component', () => {
+  it('should render mission information correctly from the store', () => {
+    const initialState = {
+      missions: {
+        missions: [
+          {
+            mission_id: '1',
+            mission_name: 'Mission 1',
+            description: 'Description for Mission 1',
+            reserved: false,
+          },
+          // Add more mission objects as needed
+        ],
+      },
+    };
 
-//     const { getByText } = render(
-//       <Provider store={store}>
-//         <App />
-//       </Provider>
-//     );
+    const store = mockStore(initialState);
 
-    
-// describe('Missions Component', () => {
-//   it('handles joining a mission', () => {
-//     const store = mockStore(initialState);
+    const { getByText } = render(
+      <Provider store={store}>
+        <Missions />
+      </Provider>
+    );
 
-//     const { getByText } = render(
-//       <Provider store={store}>
-//         <Missions />
-//       </Provider>
-//     );
-
-//     const joinButton = getByText('Join Mission');
-//     fireEvent.click(joinButton);
-
-//     // Check if the correct action is dispatched
-//     const actions = store.getActions();
-//     expect(actions).toEqual([{ type: 'missions/joinMission', payload: '1' }]);
-//   });
-//   });
-// });
-
-// });
+    expect(getByText('Mission 1')).toBeInTheDocument();
+    expect(getByText('Description for Mission 1')).toBeInTheDocument();
+  });
+});

@@ -67,9 +67,7 @@ const Profile = () => {
   const dragons = useSelector((state) => state.dragons.dragons);
   const reservedDragons = dragons.filter((dragon) => dragon.reserved !== false);
   const joinedMissions = missions.filter((mission) => mission.reserved);
-
   const rockets = useSelector((state) => state.rockets.rockets);
-  //const reservedRockets = rockets.filter((rocket) => rocket.reserved);
   const reservedRockets = useSelector((state) => state.rockets.rockets.filter((rocket) => rocket.reserved));
 
 
