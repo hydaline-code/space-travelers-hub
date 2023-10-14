@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { fetchMissions, joinMission, leaveMission } from '../redux/slice/missions/MissionsSlice';
 import './styles/Missions.css';
 
@@ -33,7 +32,7 @@ const Missions = () => {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(missions) ? (
+          {Array.isArray(missions) && missions.length > 0 ? (
             missions.map((mission) => (
               <tr className="row-description border" key={mission.mission_id}>
                 <td><h5>{mission.mission_name}</h5></td>
@@ -63,12 +62,6 @@ const Missions = () => {
       </table>
     </div>
   );
-};
-
-Missions.defaultProps = {
-  mission: {
-    mission_name: PropTypes.string.isRequired,
-  },
 };
 
 export default Missions;

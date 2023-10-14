@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
 
 const apiURL = 'https://api.spacexdata.com/v4/dragons';
 
@@ -11,10 +10,14 @@ const initialState = {
 
 export const getDragon = createAsyncThunk('dragons/getdragons', async () => {
   try {
-    const response = await axios.get(apiURL);
-    return response.data;
+    const response = await fetch(apiURL);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
   } catch (error) {
-    return error.message;
+    throw new Error('An error occurred while fetching the data');
   }
 });
 
