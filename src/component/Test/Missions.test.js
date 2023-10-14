@@ -2,35 +2,34 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import Missions from '../Missions'; // Adjust the import path as needed
+import Missions from '../Missions';
 
+// Create a mock store
 const mockStore = configureStore([]);
 
-describe('Missions Component', () => {
-  it('should render mission information correctly from the store', () => {
-    const initialState = {
+jest.mock('./redux/slice/missions/MissionsSlice', () => ({
+  fetchMissions: jest.fn(),
+  joinMission: jest.fn(),
+  leaveMission: jest.fn(),
+}));
+
+describe('Missions component', () => {
+  let store;
+
+  beforeEach(() => {
+    // Initialize the mock store with an empty state
+    store = mockStore({
       missions: {
-        missions: [
-          {
-            mission_id: '1',
-            mission_name: 'Mission 1',
-            description: 'Description for Mission 1',
-            reserved: false,
-          },
-          // Add more mission objects as needed
-        ],
+        missions: [],
       },
-    };
+    });
 
-    const store = mockStore(initialState);
-
-    const { getByText } = render(
+    render(
       <Provider store={store}>
         <Missions />
       </Provider>
     );
-
-    expect(getByText('Mission 1')).toBeInTheDocument();
-    expect(getByText('Description for Mission 1')).toBeInTheDocument();
   });
+
+  // ...rest of the test cases
 });

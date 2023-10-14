@@ -69,14 +69,3 @@ const DragonSlice = createSlice({
 export default DragonSlice.reducer;
 export const { reserveDragon, cancelDragon } = DragonSlice.actions;
 
-
-// export const getDragon = createAsyncThunk('dragons/getdragons', async () => {
-//   try {
-//     const response = await axios.get(apiURL);
-//     return response.data;
-//   } catch (error) {
-//     return error.message;
-//   }
-// });
-
-
