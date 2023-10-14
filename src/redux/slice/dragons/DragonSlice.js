@@ -15,7 +15,13 @@ export const getDragon = createAsyncThunk('dragons/getdragons', async () => {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    return data;
+    const Dragons = data.map((dragon) => ({
+      id: dragon.id,
+      name: dragon.name,
+      description: dragon.description,
+      flickr_images: dragon.flickr_images,
+    }));
+    return Dragons;
   } catch (error) {
     throw new Error('An error occurred while fetching the data');
   }
