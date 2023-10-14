@@ -5,8 +5,8 @@ import {
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import Dragons from '../Dragons'; // Import your Dragons component
-import { getDragon } from '../../redux/slice/dragons/DragonSlice'; // Import the actions
+import Dragons from '../Dragons';
+import { getDragon } from '../../redux/slice/dragons/DragonSlice';
 
 const mockStore = configureStore([thunk]);
 

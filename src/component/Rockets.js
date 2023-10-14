@@ -10,7 +10,7 @@ const Rockets = () => {
   const loading = useSelector((state) => state.rockets.loading);
 
   useEffect(() => {
-    // Fetch rockets data when the component mounts
+    
     dispatch(fetchRockets());
   }, [dispatch]);
 
