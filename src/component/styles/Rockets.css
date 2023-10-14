@@ -1,0 +1,54 @@
+.rocket-list {
+  list-style: none;
+  padding: 2px 30px;
+  margin-left: 150px;
+}
+
+.rocket-item {
+  display: flex;
+  padding: 15px;
+}
+
+.rocket-image {
+  width: 240px;
+  height: 200px;
+  margin-right: 20px;
+}
+
+.rocket-details {
+  flex: 1;
+}
+
+.reserved-description {
+  background-color: lightblue;
+  padding: 0 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.description {
+  margin-bottom: 15px;
+}
+
+.reserve-button {
+  background-color: rgba(0, 145, 255, 0.938);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reserve-button:hover,
+.cancel-button:hover {
+  opacity: 0.8;
+}
