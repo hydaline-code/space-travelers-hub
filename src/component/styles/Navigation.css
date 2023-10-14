@@ -12,7 +12,6 @@ body {
   margin: 0 auto;
 }
 
-
 .logo {
   display: flex;
   justify-content: space-around;
@@ -51,7 +50,8 @@ a:hover {
   font-size: 26px;
 }
 
-.view:hover, .My-profile:hover {
+.view:hover,
+.My-profile:hover {
   text-decoration: underline;
   color: blue;
 }
