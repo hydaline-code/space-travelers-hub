@@ -1,35 +1,64 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import Missions from '../Missions';
+import { setMissions } from '../../redux/slice/missions/MissionsSlice';
 
-// Create a mock store
-const mockStore = configureStore([]);
+const mockStore = configureStore([thunk]);
 
-jest.mock('./redux/slice/missions/MissionsSlice', () => ({
-  fetchMissions: jest.fn(),
-  joinMission: jest.fn(),
-  leaveMission: jest.fn(),
-}));
-
-describe('Missions component', () => {
+describe('Missions Component', () => {
   let store;
 
   beforeEach(() => {
-    // Initialize the mock store with an empty state
-    store = mockStore({
+    const initialState = {
       missions: {
-        missions: [],
+        missions: [
+          {
+            mission_id: '1',
+            mission_name: 'Mission 1',
+            description: 'Description 1',
+            reserved: false,
+          },
+        ],
       },
-    });
+    };
+    store = mockStore(initialState);
+  });
+
+  test('renders missions and handles join/leave actions', async () => {
+    const fakeMissions = [
+      {
+        mission_id: '1',
+        mission_name: 'Mission 1',
+        description: 'Description 1',
+        reserved: false,
+      },
+    ];
+
+    store.dispatch(setMissions(fakeMissions));
 
     render(
       <Provider store={store}>
         <Missions />
-      </Provider>
+        </Provider>,
     );
-  });
 
-  // ...rest of the test cases
+    await waitFor(() => {
+      const missionName = screen.getByText('Mission 1');
+      const description = screen.getByText('Description 1');
+      const joinButton = screen.getByText('Join Mission');
+
+      expect(missionName).toBeInTheDocument();
+      expect(description).toBeInTheDocument();
+      expect(joinButton).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByText('Join Mission'));
+
+    expect(store.getActions()).toContainEqual({
+      type: 'missions/joinMission',
+      payload: '1',
+    });
+  });
 });
