@@ -16,7 +16,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-
+     - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -137,9 +137,12 @@ To run tests, run the following command:
   npx eslint "**/*.{js,jsx}"
 ```
 
-### Deployment
 
-You can deploy this project using [GitHub Pages](https://pages.github.com/)
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+You can find a live demo in [HERE](https://fastidious-daffodil-06f46f.netlify.app).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
